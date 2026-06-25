@@ -61,7 +61,7 @@
     min-height: auto;
     display: flex; flex-direction: column;
     align-items: center; justify-content: flex-start;
-    padding: 200px 24px 0;
+    padding: 140px 24px 0;
     text-align: center;
     position: relative; overflow: visible;
     background: transparent;
@@ -712,9 +712,44 @@
     document.getElementById('contactModal').classList.remove('open');
     document.body.style.overflow = '';
   }
-  function submitContact() {
-    alert('Thanks for reaching out! We\'ll be in touch within 24 hours.');
-    closeContact();
+  async function submitContact() {
+    const name = document.querySelector('#contactModal input[type="text"]').value;
+    const email = document.querySelector('#contactModal input[type="email"]').value;
+    const topic = document.querySelector('#contactModal select').value;
+    const message = document.querySelector('#contactModal textarea').value;
+
+    if (!name || !email || !message) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/xpqgpkqg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, topic, message })
+      });
+
+      if (res.ok) {
+        alert('Thanks for reaching out! We\'ll be in touch within 24 hours.');
+        document.querySelector('#contactModal input[type="text"]').value = '';
+        document.querySelector('#contactModal input[type="email"]').value = '';
+        document.querySelector('#contactModal select').value = 'General enquiry';
+        document.querySelector('#contactModal textarea').value = '';
+        closeContact();
+      } else {
+        alert('Something went wrong. Please try again or email us at hello@velvetsearch.com.');
+      }
+    } catch (err) {
+      alert('Something went wrong. Please try again or email us at hello@velvetsearch.com.');
+    } finally {
+      btn.textContent = 'Send message →';
+      btn.disabled = false;
+    }
   }
   document.getElementById('contactModal').addEventListener('click', function(e) {
     if (e.target === this) closeContact();
