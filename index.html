@@ -37,69 +37,155 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 48px;
-    background: rgba(255,255,255,0.92);
+    background: rgba(28,27,30,0.95);
     backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid rgba(28,27,30,0.08);
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
   }
   .nav-logo img { height: 28px; width: auto; display: block; }
   .nav-links { display: flex; align-items: center; gap: 32px; }
   .nav-links a {
-    font-size: 14px; font-weight: 500; color: var(--gray);
+    font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.75);
     text-decoration: none; transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--dark); }
+  .nav-links a:hover { color: var(--white); }
   .nav-cta {
-    background: var(--dark); color: var(--white) !important;
+    background: var(--white); color: var(--indigo) !important;
     padding: 10px 20px; border-radius: 100px;
-    font-size: 14px; font-weight: 600;
+    font-size: 14px; font-weight: 700;
     transition: opacity 0.2s !important;
   }
-  .nav-cta:hover { opacity: 0.85; }
+  .nav-cta:hover { opacity: 0.9; }
 
   /* HERO */
   .hero {
-    min-height: 100vh;
+    min-height: auto;
     display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 120px 24px 80px;
+    align-items: center; justify-content: flex-start;
+    padding: 140px 24px 0;
     text-align: center;
-    position: relative; overflow: hidden;
+    position: relative; overflow: visible;
+    background: transparent;
+  }
+  .hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    bottom: 230px; /* stops halfway up the 460px center phone */
+    background: var(--indigo);
+    z-index: 0;
   }
   .hero-glow {
-    position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
-    width: 800px; height: 500px; border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(82,67,224,0.08) 0%, rgba(255,53,234,0.04) 50%, transparent 70%);
-    pointer-events: none;
+    position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 600px; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(255,53,234,0.2) 0%, rgba(155,79,213,0.15) 40%, transparent 70%);
+    pointer-events: none; z-index: 1;
   }
   .hero-eyebrow {
+    position: relative; z-index: 2;
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
-    color: var(--indigo); text-transform: uppercase;
-    background: rgba(82,67,224,0.06); border: 0.5px solid rgba(82,67,224,0.2);
+    color: rgba(255,255,255,0.7); text-transform: uppercase;
+    background: rgba(255,255,255,0.1); border: 0.5px solid rgba(255,255,255,0.2);
     padding: 6px 14px; border-radius: 100px;
     margin-bottom: 28px;
+  
   }
-  .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: var(--indigo); }
+  .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: var(--pink); }
   .hero h1 {
     font-family: 'Syne', sans-serif;
     font-size: clamp(42px, 7vw, 80px);
     font-weight: 700; line-height: 1.05; letter-spacing: -2px;
-    color: var(--dark); max-width: 780px; margin-bottom: 24px;
+    color: var(--white); max-width: 780px; margin-bottom: 24px;
+    position: relative; z-index: 2;
   }
   .hero h1 em {
     font-style: normal;
-    background: linear-gradient(135deg, var(--indigo), var(--purple), var(--pink));
+    background: linear-gradient(135deg, var(--pink), #ff9ef5);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .hero-sub {
-    font-size: 18px; font-weight: 400; color: var(--gray);
+    font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.7);
     max-width: 480px; line-height: 1.65; margin-bottom: 44px;
+    position: relative; z-index: 2;
   }
-  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 72px; position: relative; z-index: 2; }
+
+  /* PHONE MOCKUPS */
+  .hero-phones {
+    display: flex; align-items: flex-end; justify-content: center;
+    width: 100%; max-width: 900px;
+    position: relative; z-index: 1;
+    height: 480px;
+  }
+  .phone-mockup {
+    background: #0f0e12;
+    border-radius: 36px;
+    border: 2px solid rgba(255,255,255,0.15);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+  }
+  .phone-mockup.center {
+    width: 220px; height: 460px;
+    z-index: 3;
+    left: 50%; transform: translateX(-50%);
+  }
+  .phone-mockup.left {
+    width: 190px; height: 400px;
+    z-index: 2;
+    left: 50%; transform: translateX(-160%);
+    opacity: 0.85;
+  }
+  .phone-mockup.right {
+    width: 190px; height: 400px;
+    z-index: 2;
+    left: 50%; transform: translateX(60%);
+    opacity: 0.85;
+  }
+  .phone-notch {
+    position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 24px; background: #0f0e12;
+    border-radius: 100px; z-index: 10;
+  }
+  .phone-screen {
+    width: 100%; height: 100%;
+    background: linear-gradient(160deg, #1a1830 0%, #2d1f5e 40%, #1C1B1E 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 40px 16px 20px;
+    gap: 12px;
+  }
+  .phone-screen-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4); text-transform: uppercase;
+  }
+  .phone-ui-bar {
+    width: 100%; height: 6px; border-radius: 3px;
+    background: rgba(255,255,255,0.08);
+  }
+  .phone-ui-card {
+    width: 100%; border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    padding: 12px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .phone-ui-dot {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--indigo), var(--pink));
+    margin: 0 auto 8px;
+  }
+  .phone-ui-line {
+    height: 5px; border-radius: 3px;
+    background: rgba(255,255,255,0.12);
+  }
+  .phone-ui-line.short { width: 60%; }
+  .phone-ui-line.accent { background: rgba(82,67,224,0.4); }
   .btn-primary {
     display: inline-flex; align-items: center; gap: 10px;
-    background: linear-gradient(135deg, var(--indigo), var(--purple));
+    background: #9B4FD5;
     color: var(--white); font-family: 'Syne', sans-serif;
     font-size: 16px; font-weight: 700;
     padding: 16px 32px; border-radius: 100px;
@@ -109,20 +195,20 @@
   .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
   .btn-secondary {
     display: inline-flex; align-items: center; gap: 10px;
-    background: var(--white); color: var(--dark);
+    background: rgba(255,255,255,0.1); color: var(--white);
     font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700;
     padding: 16px 32px; border-radius: 100px;
-    text-decoration: none; border: 1.5px solid rgba(28,27,30,0.15);
-    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none; border: 1.5px solid rgba(255,255,255,0.3);
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
     cursor: pointer;
   }
-  .btn-secondary:hover { border-color: var(--dark); transform: translateY(-1px); }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); transform: translateY(-1px); }
   .store-icon { width: 20px; height: 20px; }
 
   /* FEATURES */
   .features {
     padding: 100px 24px;
-    background: var(--cream);
+    background: var(--white);
   }
   .section-label {
     text-align: center;
@@ -160,6 +246,7 @@
   .how {
     padding: 100px 24px;
     text-align: center;
+    background: #EAE5DC;
   }
   .steps {
     display: grid;
@@ -258,7 +345,7 @@
   footer {
     padding: 48px 48px 40px;
     border-top: 0.5px solid rgba(28,27,30,0.08);
-    display: flex; flex-wrap: wrap; gap: 24px;
+    display: flex; flex-wrap: nowrap; gap: 24px;
     align-items: center; justify-content: space-between;
   }
   .footer-logo img { height: 24px; width: auto; display: block; }
@@ -268,7 +355,7 @@
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--dark); }
-  .footer-copy { font-size: 12px; color: var(--taupe); width: 100%; }
+  .footer-copy { font-size: 12px; color: var(--taupe); }
 
   /* CONTACT MODAL */
   .modal-overlay {
@@ -339,9 +426,12 @@
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links a:not(.nav-cta) { display: none; }
-    .hero { padding: 110px 24px 60px; min-height: auto; }
+    .hero { padding: 110px 24px 0; min-height: auto; }
     .hero h1 { letter-spacing: -1.5px; }
     .hero-sub { font-size: 16px; }
+    .phone-mockup.left { width: 150px; height: 320px; transform: translateX(-130%); }
+    .phone-mockup.right { width: 150px; height: 320px; transform: translateX(30%); }
+    .phone-mockup.center { width: 180px; height: 380px; }
     .features { padding: 80px 24px; }
     .features-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .how { padding: 80px 24px; }
@@ -356,12 +446,16 @@
   @media (max-width: 640px) {
     nav { padding: 14px 20px; }
     .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
-    .hero { padding: 100px 20px 56px; }
+    .hero { padding: 100px 20px 0; }
     .hero-eyebrow { font-size: 11px; }
     .hero-sub { font-size: 15px; max-width: 100%; }
     .hero-btns { flex-direction: column; align-items: center; width: 100%; }
     .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    .hero-phones { height: 320px; }
+    .phone-mockup.left { width: 100px; height: 220px; border-radius: 22px; transform: translateX(-120%); }
+    .phone-mockup.right { width: 100px; height: 220px; border-radius: 22px; transform: translateX(20%); }
+    .phone-mockup.center { width: 140px; height: 290px; border-radius: 28px; }
+    .phone-screen-label { font-size: 8px; }
     .features { padding: 60px 20px; }
     .features-grid { grid-template-columns: 1fr; gap: 12px; }
     .feature-card { padding: 24px 20px; border-radius: 16px; }
@@ -386,6 +480,8 @@
     .section-title { font-size: 26px; }
     .step-num-large { font-size: 40px; }
     .nav-logo img { height: 22px; }
+    .phone-mockup.left, .phone-mockup.right { display: none; }
+    .phone-mockup.center { width: 160px; height: 320px; }
   }
 </style>
 </head>
@@ -404,6 +500,7 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-glow"></div>
   <div class="hero-eyebrow"><span></span>Visual product search</div>
   <h1>You saw it.<br><em>Now own it.</em></h1>
@@ -417,6 +514,74 @@
       <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.99.14l12.5-7.21-2.79-2.79-10.7 9.86zm-1.15-1.04c-.02-.11-.03-.23-.03-.35V1.63c0-.12.01-.24.03-.35L13.41 12 2.03 22.72zM21.6 10.04l-2.43-1.4-3.16 3.16 3.16 3.17 2.46-1.42c.7-.4.7-1.5-.03-2.51zM4.17.14L16.68 7.35l-2.79 2.79L3.18.28C3.49.06 3.88.02 4.17.14z"/></svg>
       Google Play
     </a>
+  </div>
+
+  <!-- Phone mockups -->
+  <div class="hero-phones">
+    <!-- Left phone -->
+    <div class="phone-mockup left">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <p class="phone-screen-label">Discover</p>
+        <div class="phone-ui-card">
+          <div class="phone-ui-line"></div>
+          <div class="phone-ui-line short"></div>
+        </div>
+        <div class="phone-ui-card">
+          <div class="phone-ui-line accent"></div>
+          <div class="phone-ui-line short"></div>
+        </div>
+        <div class="phone-ui-bar"></div>
+        <div class="phone-ui-card">
+          <div class="phone-ui-line"></div>
+          <div class="phone-ui-line short accent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center phone -->
+    <div class="phone-mockup center">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <p class="phone-screen-label">VelvetSearch</p>
+        <div class="phone-ui-dot"></div>
+        <div class="phone-ui-card">
+          <div class="phone-ui-line accent"></div>
+          <div class="phone-ui-line short"></div>
+          <div class="phone-ui-line short"></div>
+        </div>
+        <div class="phone-ui-bar"></div>
+        <div class="phone-ui-card">
+          <div class="phone-ui-line"></div>
+          <div class="phone-ui-line short accent"></div>
+        </div>
+        <div class="phone-ui-card">
+          <div class="phone-ui-line short"></div>
+          <div class="phone-ui-line accent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right phone -->
+    <div class="phone-mockup right">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <p class="phone-screen-label">Price Alerts</p>
+        <div class="phone-ui-card">
+          <div class="phone-ui-line accent"></div>
+          <div class="phone-ui-line short"></div>
+        </div>
+        <div class="phone-ui-bar"></div>
+        <div class="phone-ui-card">
+          <div class="phone-ui-line"></div>
+          <div class="phone-ui-line short accent"></div>
+        </div>
+        <div class="phone-ui-card">
+          <div class="phone-ui-line short"></div>
+          <div class="phone-ui-line"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
