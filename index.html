@@ -41,13 +41,7 @@
     backdrop-filter: blur(12px);
     border-bottom: 0.5px solid rgba(28,27,30,0.08);
   }
-  .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-size: 20px; font-weight: 800;
-    color: var(--dark); letter-spacing: -0.5px;
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--indigo); }
+  .nav-logo img { height: 28px; width: auto; display: block; }
   .nav-links { display: flex; align-items: center; gap: 32px; }
   .nav-links a {
     font-size: 14px; font-weight: 500; color: var(--gray);
@@ -89,7 +83,7 @@
   .hero h1 {
     font-family: 'Syne', sans-serif;
     font-size: clamp(42px, 7vw, 80px);
-    font-weight: 800; line-height: 1.05; letter-spacing: -2px;
+    font-weight: 700; line-height: 1.05; letter-spacing: -2px;
     color: var(--dark); max-width: 780px; margin-bottom: 24px;
   }
   .hero h1 em {
@@ -137,13 +131,13 @@
   }
   .section-title {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(28px, 4vw, 42px); font-weight: 800;
+    font-size: clamp(28px, 4vw, 42px); font-weight: 700;
     letter-spacing: -1px; color: var(--dark);
     text-align: center; margin-bottom: 60px;
   }
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px; max-width: 1000px; margin: 0 auto;
   }
   .feature-card {
@@ -160,38 +154,58 @@
     font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700;
     color: var(--dark); margin-bottom: 10px; letter-spacing: -0.3px;
   }
-  .feature-card p {
-    font-size: 14px; color: var(--gray); line-height: 1.65;
-  }
+  .feature-card p { font-size: 14px; color: var(--gray); line-height: 1.65; }
 
   /* HOW IT WORKS */
   .how {
     padding: 100px 24px;
-    max-width: 700px; margin: 0 auto; text-align: center;
+    text-align: center;
   }
-  .steps { display: flex; flex-direction: column; gap: 0; margin-top: 48px; text-align: left; }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px; margin-top: 56px;
+    max-width: 1000px; margin-left: auto; margin-right: auto;
+    text-align: left;
+  }
   .step {
-    display: flex; gap: 24px; align-items: flex-start;
-    padding: 28px 0;
-    border-bottom: 0.5px solid rgba(28,27,30,0.08);
+    background: var(--white);
+    border: 0.5px solid rgba(28,27,30,0.08);
+    border-radius: 20px;
+    padding: 36px 32px;
+    display: flex; flex-direction: column; gap: 0;
+    position: relative; overflow: hidden;
   }
-  .step:last-child { border-bottom: none; }
-  .step-num {
-    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
-    color: var(--indigo); background: rgba(82,67,224,0.08);
-    border-radius: 8px; padding: 6px 10px; flex-shrink: 0; margin-top: 2px;
+  .step-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    color: var(--taupe); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .step-num-large {
+    font-family: 'Syne', sans-serif;
+    font-size: 72px; font-weight: 700; line-height: 1;
+    letter-spacing: -3px;
+    background: linear-gradient(135deg, var(--indigo), var(--purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 24px;
   }
   .step h4 {
-    font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700;
-    color: var(--dark); margin-bottom: 6px; letter-spacing: -0.3px;
+    font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700;
+    color: var(--dark); margin-bottom: 12px; letter-spacing: -0.5px;
   }
-  .step p { font-size: 14px; color: var(--gray); line-height: 1.65; }
+  .step p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+  .step-learn {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 24px; font-size: 13px; font-weight: 600;
+    color: var(--indigo); text-decoration: none;
+    border-bottom: 1px solid var(--indigo); padding-bottom: 2px;
+    width: fit-content;
+  }
 
-  /* CTA BAND */
+  /* CTA BAND — full bleed */
   .cta-band {
-    margin: 0 24px 80px;
-    background: var(--dark); border-radius: 28px;
-    padding: 72px 40px; text-align: center;
+    background: var(--dark);
+    padding: 100px 40px; text-align: center;
     position: relative; overflow: hidden;
   }
   .cta-band::before {
@@ -210,7 +224,7 @@
   }
   .cta-band h2 {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(28px, 4vw, 48px); font-weight: 800;
+    font-size: clamp(28px, 4vw, 48px); font-weight: 700;
     color: var(--white); letter-spacing: -1px;
     margin-bottom: 16px; position: relative; z-index: 1;
   }
@@ -247,11 +261,7 @@
     display: flex; flex-wrap: wrap; gap: 24px;
     align-items: center; justify-content: space-between;
   }
-  .footer-logo {
-    font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800;
-    color: var(--dark); letter-spacing: -0.5px; text-decoration: none;
-  }
-  .footer-logo span { color: var(--indigo); }
+  .footer-logo img { height: 24px; width: auto; display: block; }
   .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
   .footer-links a {
     font-size: 13px; color: var(--gray); text-decoration: none;
@@ -273,7 +283,7 @@
     position: relative;
   }
   .modal h3 {
-    font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800;
+    font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 700;
     color: var(--dark); margin-bottom: 8px; letter-spacing: -0.5px;
   }
   .modal p { font-size: 14px; color: var(--gray); margin-bottom: 28px; line-height: 1.6; }
@@ -292,9 +302,7 @@
     font-size: 14px; color: var(--dark); outline: none;
     transition: border-color 0.2s; background: var(--white);
   }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    border-color: var(--indigo);
-  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--indigo); }
   .form-group textarea { resize: vertical; min-height: 100px; }
   .form-submit {
     width: 100%; padding: 14px;
@@ -306,14 +314,78 @@
   .form-submit:hover { opacity: 0.9; }
 
   /* RESPONSIVE */
+
+  /* Large desktop (1280px+) — max content width */
+  @media (min-width: 1280px) {
+    nav { padding: 20px 80px; }
+    .features-grid { max-width: 1200px; }
+    .how { max-width: 1200px; margin-left: auto; margin-right: auto; }
+    .steps { max-width: 1200px; }
+    .hero h1 { font-size: 88px; }
+    .cta-band { padding: 120px 80px; }
+    footer { padding: 56px 80px 48px; }
+  }
+
+  /* Tablet landscape (1024px) */
+  @media (max-width: 1024px) {
+    nav { padding: 16px 32px; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+    .steps { grid-template-columns: repeat(3, 1fr); }
+    .cta-band { padding: 80px 48px; }
+    footer { padding: 40px 32px 32px; }
+  }
+
+  /* Tablet portrait (768px) */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 110px 24px 60px; min-height: auto; }
+    .hero h1 { letter-spacing: -1.5px; }
+    .hero-sub { font-size: 16px; }
+    .features { padding: 80px 24px; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .how { padding: 80px 24px; }
+    .steps { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+    .step { padding: 28px 24px; }
+    .step-num-large { font-size: 56px; }
+    .cta-band { padding: 72px 32px; }
+    footer { padding: 36px 24px 32px; }
+  }
+
+  /* Mobile large (640px) */
   @media (max-width: 640px) {
-    nav { padding: 16px 20px; }
+    nav { padding: 14px 20px; }
     .nav-links { display: none; }
-    .hero { padding: 100px 20px 60px; }
-    .features { padding: 70px 20px; }
-    .cta-band { margin: 0 16px 60px; padding: 52px 24px; }
-    footer { padding: 36px 20px 32px; flex-direction: column; align-items: flex-start; }
-    .how { padding: 70px 20px; }
+    .nav-hamburger { display: flex; }
+    .hero { padding: 100px 20px 56px; }
+    .hero-eyebrow { font-size: 11px; }
+    .hero-sub { font-size: 15px; max-width: 100%; }
+    .hero-btns { flex-direction: column; align-items: center; width: 100%; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    .features { padding: 60px 20px; }
+    .features-grid { grid-template-columns: 1fr; gap: 12px; }
+    .feature-card { padding: 24px 20px; border-radius: 16px; }
+    .section-title { margin-bottom: 40px; }
+    .how { padding: 60px 20px; }
+    .steps { gap: 12px; margin-top: 32px; }
+    .step { padding: 24px 20px; border-radius: 16px; }
+    .step-num-large { font-size: 48px; margin-bottom: 16px; }
+    .step h4 { font-size: 18px; }
+    .cta-band { padding: 60px 20px; }
+    .cta-band-btns { flex-direction: column; align-items: center; }
+    .btn-white, .btn-ghost { width: 100%; justify-content: center; }
+    footer { padding: 32px 20px 28px; flex-direction: column; align-items: flex-start; gap: 20px; }
+    .footer-links { gap: 16px; }
+    .modal { padding: 28px 20px; border-radius: 20px; }
+  }
+
+  /* Mobile small (375px) */
+  @media (max-width: 375px) {
+    .hero h1 { font-size: 36px; letter-spacing: -1px; }
+    .hero-sub { font-size: 14px; }
+    .section-title { font-size: 26px; }
+    .step-num-large { font-size: 40px; }
+    .nav-logo img { height: 22px; }
   }
 </style>
 </head>
@@ -321,7 +393,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Velvet<span>Search</span></a>
+  <a href="#" class="nav-logo"><img src="VS_horizontal_logo_dark.png" alt="VelvetSearch"></a>
   <div class="nav-links">
     <a href="#features">Features</a>
     <a href="#how">How it works</a>
@@ -354,22 +426,22 @@
   <h2 class="section-title">Everything you need to find it</h2>
   <div class="features-grid">
     <div class="feature-card">
-      <div class="feature-icon" style="background: rgba(82,67,224,0.08);">📸</div>
+      <div class="feature-icon" style="background: rgba(82,67,224,0.08);"><img src="icons/camera.png" style="width:24px;height:24px;filter:invert(27%) sepia(89%) saturate(1200%) hue-rotate(228deg) brightness(90%) contrast(95%);"></div>
       <h3>Visual search</h3>
       <p>Point your camera at any product — clothing, electronics, home goods, beauty — and we'll identify it instantly.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon" style="background: rgba(155,79,213,0.08);">🏷️</div>
+      <div class="feature-icon" style="background: rgba(155,79,213,0.08);"><img src="icons/price.png" style="width:24px;height:24px;filter:invert(35%) sepia(60%) saturate(800%) hue-rotate(260deg) brightness(90%) contrast(95%);"></div>
       <h3>Best price, always</h3>
       <p>We search across 100+ retailers in real time so you never overpay. One item, every store, one result.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon" style="background: rgba(24,185,242,0.08);">📋</div>
+      <div class="feature-icon" style="background: rgba(24,185,242,0.08);"><img src="icons/heart.png" style="width:24px;height:24px;filter:invert(60%) sepia(80%) saturate(500%) hue-rotate(160deg) brightness(95%) contrast(95%);"></div>
       <h3>Save to boards</h3>
       <p>Organise your finds into boards. Build wishlists, mood boards, and gift guides — all in one place.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon" style="background: rgba(255,53,234,0.08);">🔔</div>
+      <div class="feature-icon" style="background: rgba(255,53,234,0.08);"><img src="icons/alerts.png" style="width:24px;height:24px;filter:invert(50%) sepia(90%) saturate(1000%) hue-rotate(280deg) brightness(100%) contrast(95%);"></div>
       <h3>Price drop alerts</h3>
       <p>Watch any item and we'll notify you the moment the price falls. Never miss a sale on something you love.</p>
     </div>
@@ -382,30 +454,30 @@
   <h2 class="section-title">Three steps to the find</h2>
   <div class="steps">
     <div class="step">
-      <div class="step-num">Snap</div>
-      <div>
-        <h4>Take a photo</h4>
-        <p>Open the app and point your camera at anything — a jacket someone's wearing, a lamp in a café, a pair of shoes on Instagram.</p>
-      </div>
+      <p class="step-eyebrow">Step one</p>
+      <div class="step-num-large">01</div>
+      <h4>Take a photo</h4>
+      <p>Open the app and point your camera at anything — a jacket someone's wearing, a lamp in a café, a pair of shoes on Instagram.</p>
+      <a href="#download" class="step-learn">Get started →</a>
     </div>
     <div class="step">
-      <div class="step-num">Find</div>
-      <div>
-        <h4>We identify and search</h4>
-        <p>Our AI identifies the item and searches across 100+ retailers to find exact and similar matches with live prices.</p>
-      </div>
+      <p class="step-eyebrow">Step two</p>
+      <div class="step-num-large">02</div>
+      <h4>We identify and search</h4>
+      <p>Our AI identifies the item and searches across 100+ retailers to find exact and similar matches with live prices.</p>
+      <a href="#download" class="step-learn">See how →</a>
     </div>
     <div class="step">
-      <div class="step-num">Own</div>
-      <div>
-        <h4>Buy at the best price</h4>
-        <p>Compare results, save your favourites to a board, or tap through to buy directly from the retailer — at the lowest price we found.</p>
-      </div>
+      <p class="step-eyebrow">Step three</p>
+      <div class="step-num-large">03</div>
+      <h4>Buy at the best price</h4>
+      <p>Compare results, save your favourites to a board, or tap through to buy directly from the retailer — at the lowest price we found.</p>
+      <a href="#download" class="step-learn">Download now →</a>
     </div>
   </div>
 </section>
 
-<!-- CTA BAND -->
+<!-- CTA BAND — full bleed -->
 <section class="cta-band" id="download">
   <h2>Find the exact piece.<br>At the best price.</h2>
   <p>Available now on iOS and Android.</p>
@@ -423,7 +495,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <a href="#" class="footer-logo">Velvet<span>Search</span></a>
+  <a href="#" class="footer-logo"><img src="VS_horizontal_logo_dark.png" alt="VelvetSearch"></a>
   <div class="footer-links">
     <a href="/privacy">Privacy policy</a>
     <a href="/terms">Terms of service</a>
