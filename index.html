@@ -60,7 +60,7 @@
   .hero {
     min-height: auto;
     display: flex; flex-direction: row;
-    align-items: center; justify-content: space-between;
+    align-items: center; justify-content: flex-start;
     gap: 40px;
     padding: 140px 24px 120px;
     text-align: left;
@@ -120,11 +120,12 @@
 
   /* PHONE MOCKUPS */
   .hero-phones {
-    display: flex; align-items: center; justify-content: center;
+    display: flex; align-items: center; justify-content: flex-end;
     width: 100%; max-width: 480px;
     position: relative; z-index: 1;
     height: 480px;
     flex-shrink: 0;
+    margin-left: auto;
     margin-right: max(0px, calc((100vw - 1000px) / 2 - 24px));
   }
   .phone-mockup {
