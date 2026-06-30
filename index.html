@@ -59,12 +59,19 @@
   /* HERO */
   .hero {
     min-height: auto;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: flex-start;
-    padding: 180px 24px 0;
-    text-align: center;
+    display: flex; flex-direction: row;
+    align-items: center; justify-content: space-between;
+    gap: 40px;
+    padding: 140px 48px 0;
+    text-align: left;
     position: relative; overflow: visible;
     background: transparent;
+  }
+  .hero-content {
+    display: flex; flex-direction: column;
+    align-items: flex-start;
+    max-width: 540px;
+    flex-shrink: 0;
   }
   .hero-bg {
     position: absolute;
@@ -107,14 +114,15 @@
     max-width: 480px; line-height: 1.65; margin-bottom: 30px;
     position: relative; z-index: 2;
   }
-  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; position: relative; z-index: 2; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-start; margin-bottom: 40px; position: relative; z-index: 2; }
 
   /* PHONE MOCKUPS */
   .hero-phones {
-    display: flex; align-items: flex-end; justify-content: center;
-    width: 100%; max-width: 900px;
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; max-width: 480px;
     position: relative; z-index: 1;
     height: 480px;
+    flex-shrink: 0;
   }
   .phone-mockup {
     background: #0f0e12;
@@ -131,18 +139,22 @@
   .phone-mockup.center {
     width: 220px; height: 460px;
     z-index: 3;
-    left: 50%; transform: translateX(-50%);
+    left: 50%; bottom: 50%;
+    transform: translate(-50%, 50%);
   }
   .phone-mockup.left {
     width: 190px; height: 400px;
     z-index: 2;
-    left: 50%; transform: translateX(-160%);
-
+    left: 50%; bottom: 50%;
+    transform: translate(-130%, 60%);
+    opacity: 0.85;
   }
   .phone-mockup.right {
     width: 190px; height: 400px;
     z-index: 2;
-    left: 50%; transform: translateX(60%);
+    left: 50%; bottom: 50%;
+    transform: translate(30%, 60%);
+    opacity: 0.85;
   }
   .phone-notch {
     position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
@@ -507,6 +519,7 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
+  <div class="hero-content">
   <h1>Shop the world<br><em>around you.</em></h1>
   <p class="hero-sub">Snap a photo of the item you love and we'll find exactly where to buy it — at the best price across 100s of retailers.</p>
   <div class="hero-btns">
@@ -519,7 +532,7 @@
       Google Play
     </a>
   </div>
-
+  </div>
   <!-- Phone mockups -->
   <div class="hero-phones">
     <!-- Left phone -->
