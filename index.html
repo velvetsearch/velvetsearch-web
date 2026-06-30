@@ -525,27 +525,34 @@
     .hero h1 { max-width: 100%; }
     .hero-eyebrow { font-size: 11px; }
     .hero-sub { font-size: 15px; max-width: 100%; }
-    .hero-btns { flex-direction: column; align-items: center; width: 100%; }
+    .hero-btns { flex-direction: column; align-items: center; width: 100%; margin-bottom: 32px; }
     .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
     .hero-phones { height: 320px; }
-   .phone-mockup.left { width: 100px; height: 220px; border-radius: 15px; transform: translateX(-120%); }
-    .phone-mockup.right { width: 100px; height: 220px; border-radius: 15px; transform: translateX(20%); }
+ .phone-mockup.left { width: 100px; height: 220px; border-radius: 22px; transform: translate(-120%, 24px); }
+    .phone-mockup.left .phone-screen,
+    .phone-mockup.left .phone-screen img { border-radius: 16px !important; }
+    .phone-mockup.right { width: 100px; height: 220px; border-radius: 22px; transform: translate(20%, 24px); }
+    .phone-mockup.right .phone-screen,
+    .phone-mockup.right .phone-screen img { border-radius: 16px !important; }
     .phone-mockup.center { width: 140px; height: 290px; border-radius: 28px; }
     .phone-screen-label { font-size: 8px; }
     .features { padding: 60px 20px; }
     .features-grid { grid-template-columns: 1fr; gap: 12px; }
-    .feature-card { padding: 24px 20px; border-radius: 16px; }
+    .feature-card { padding: 24px 20px; border-radius: 16px; text-align: center; }
+    .feature-icon { margin-left: auto; margin-right: auto; }
     .section-title { margin-bottom: 40px; }
     .how { padding: 60px 20px; }
     .steps { gap: 12px; margin-top: 32px; }
-    .step { padding: 24px 20px; border-radius: 16px; }
+    .step { padding: 24px 20px; border-radius: 16px; text-align: center; align-items: center; }
+    .step-num-large { margin-left: auto; margin-right: auto; }
+    .step-learn { margin-left: auto; margin-right: auto; }
     .step-num-large { font-size: 48px; margin-bottom: 16px; }
     .step h4 { font-size: 18px; }
     .cta-band { padding: 60px 20px; }
     .cta-band-btns { flex-direction: column; align-items: center; }
     .btn-white, .btn-ghost { width: 100%; justify-content: center; }
-    footer { padding: 32px 20px 28px; flex-direction: column; align-items: flex-start; gap: 20px; }
-    .footer-links { gap: 16px; }
+    footer { padding: 32px 20px 28px; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+    .footer-links { gap: 16px; justify-content: center; flex-wrap: wrap; }
     .modal { padding: 28px 20px; border-radius: 20px; }
   }
 
