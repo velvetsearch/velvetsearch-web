@@ -225,6 +225,63 @@
   .btn-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); transform: translateY(-1px); }
   .store-icon { width: 20px; height: 20px; }
 
+    /* WAITLIST */
+  .waitlist {
+    background: var(--dark);
+    padding: 100px 48px;
+    text-align: center;
+  }
+  .waitlist .section-label {
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+  .waitlist h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 5vw, 52px); font-weight: 700;
+    letter-spacing: -1.5px; color: var(--white);
+    margin-bottom: 16px;
+  }
+  .waitlist-sub {
+    font-size: 17px; color: rgba(255,255,255,0.6);
+    max-width: 460px; margin: 0 auto 36px; line-height: 1.65;
+  }
+  .waitlist-form {
+    display: flex; gap: 12px; justify-content: center;
+    flex-wrap: wrap; max-width: 520px; margin: 0 auto;
+  }
+  .waitlist-input {
+    flex: 1; min-width: 240px;
+    padding: 16px 20px; border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.07);
+    color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px; outline: none;
+    transition: border-color 0.2s;
+  }
+  .waitlist-input::placeholder { color: rgba(255,255,255,0.35); }
+  .waitlist-input:focus { border-color: var(--indigo); }
+  .waitlist-btn {
+    display: inline-flex; align-items: center;
+    padding: 16px 28px; border-radius: 100px;
+    background: linear-gradient(135deg, var(--indigo), var(--purple));
+    color: var(--white); font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 700; border: none;
+    cursor: pointer; transition: opacity 0.2s; white-space: nowrap;
+  }
+  .waitlist-btn:hover { opacity: 0.9; }
+  .waitlist-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .waitlist-microcopy {
+    font-size: 13px; color: rgba(255,255,255,0.35);
+    margin-top: 16px;
+  }
+  .waitlist-success {
+    display: none;
+    font-family: 'Syne', sans-serif;
+    font-size: 17px; font-weight: 700;
+    color: var(--white); margin-top: 20px;
+  }
+  .waitlist-success.show { display: block; }
+
   /* FEATURES */
   .features {
     padding: 24px;
@@ -536,6 +593,10 @@
     .phone-mockup.right .phone-screen img { border-radius: 16px !important; }
     .phone-mockup.center { width: 140px; height: 290px; border-radius: 28px; left: 50%; bottom: 50%; transform: translate(-50%, 50%); z-index: 3; }
     .phone-screen-label { font-size: 8px; }
+    .waitlist { padding: 72px 20px; }
+    .waitlist-form { flex-direction: column; align-items: stretch; }
+    .waitlist-input { min-width: unset; border-radius: 16px; }
+    .waitlist-btn { justify-content: center; border-radius: 100px; }
     .features { padding: 60px 20px; }
     .features-grid { grid-template-columns: 1fr; gap: 12px; }
     .feature-card { padding: 24px 20px; border-radius: 16px; text-align: center; }
@@ -636,6 +697,19 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist" id="waitlist">
+  <p class="section-label">Early Access</p>
+  <h2>Be the first to find anything.</h2>
+  <p class="waitlist-sub">Join the beta and get free Pro access during the entire testing period. First 500 members only.</p>
+  <div class="waitlist-form" id="waitlistForm">
+    <input class="waitlist-input" type="email" id="waitlistEmail" placeholder="Enter your email address">
+    <button class="waitlist-btn" onclick="submitWaitlist()">Join the waitlist →</button>
+  </div>
+  <p class="waitlist-microcopy" id="waitlistMicrocopy">Free to join. No credit card. Early access for the first 500 members.</p>
+  <p class="waitlist-success" id="waitlistSuccess">You're on the list! We'll be in touch soon. 🎉</p>
 </section>
 
 <!-- FEATURES -->
@@ -802,6 +876,38 @@
   document.getElementById('contactModal').addEventListener('click', function(e) {
     if (e.target === this) closeContact();
   });
+
+  async function submitWaitlist() {
+    const email = document.getElementById('waitlistEmail').value;
+    if (!email || !email.includes('@')) {
+      document.getElementById('waitlistEmail').focus();
+      return;
+    }
+    const btn = document.querySelector('.waitlist-btn');
+    btn.textContent = 'Joining…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/xwlkdkwd', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      if (res.ok) {
+        document.getElementById('waitlistForm').style.display = 'none';
+        document.getElementById('waitlistMicrocopy').style.display = 'none';
+        document.getElementById('waitlistSuccess').classList.add('show');
+      } else {
+        btn.textContent = 'Join the waitlist →';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      btn.textContent = 'Join the waitlist →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  }
 
   function toggleMobileMenu() {
     document.getElementById('hamburgerBtn').classList.toggle('open');
