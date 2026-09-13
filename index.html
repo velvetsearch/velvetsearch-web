@@ -225,6 +225,42 @@
   .btn-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); transform: translateY(-1px); }
   .store-icon { width: 20px; height: 20px; }
 
+  /* HERO WAITLIST */
+  .hero-waitlist-form { position: relative; z-index: 2; width: 100%; max-width: 500px; }
+  .hero-waitlist-row {
+    display: flex; gap: 10px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px; padding: 6px 6px 6px 20px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-waitlist-input {
+    flex: 1; background: transparent; border: none; outline: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px; color: var(--white);
+  }
+  .hero-waitlist-input::placeholder { color: rgba(255,255,255,0.45); }
+  .hero-waitlist-btn {
+    background: linear-gradient(135deg, var(--indigo), var(--purple));
+    color: var(--white); font-family: 'Syne', sans-serif;
+    font-size: 14px; font-weight: 700;
+    padding: 12px 22px; border-radius: 100px;
+    border: none; cursor: pointer; white-space: nowrap;
+    transition: opacity 0.2s; flex-shrink: 0;
+  }
+  .hero-waitlist-btn:hover { opacity: 0.9; }
+  .hero-waitlist-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .hero-waitlist-microcopy {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    margin-top: 12px;
+  }
+  .hero-waitlist-success {
+    display: none;
+    font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700;
+    color: var(--white); margin-top: 16px;
+  }
+  .hero-waitlist-success.show { display: block; }
+
     /* WAITLIST */
   .waitlist {
     background: var(--dark);
@@ -582,8 +618,10 @@
     .hero h1 { max-width: 100%; }
     .hero-eyebrow { font-size: 11px; }
     .hero-sub { font-size: 15px; max-width: 100%; }
-    .hero-btns { flex-direction: column; align-items: center; width: 100%; margin-bottom: 32px; }
-    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    .hero-waitlist-form { max-width: 100%; }
+    .hero-waitlist-row { flex-direction: column; border-radius: 20px; padding: 12px; gap: 8px; }
+    .hero-waitlist-input { padding: 8px 4px; }
+    .hero-waitlist-btn { width: 100%; justify-content: center; padding: 14px; }
     .hero-phones { height: 320px; margin-bottom: 25px; }
     .phone-mockup.left { width: 121px; height: 254px; border-radius: 24px; left: 50%; bottom: 50%; transform: translate(-140%, calc(60% + 20px)); }
     .phone-mockup.left .phone-screen,
@@ -659,16 +697,14 @@
   <div class="hero-glow"></div>
   <div class="hero-content">
   <h1>Shop the world<br><em>around you.</em></h1>
-  <p class="hero-sub">Snap a photo of the item you love and we'll find exactly where to buy it — at the best price across 100s of retailers.</p>
-  <div class="hero-btns">
-    <a href="#" class="btn-primary" id="app-store-btn">
-      <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      Apple Store
-    </a>
-    <a href="#" class="btn-secondary" id="play-store-btn">
-      <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.99.14l12.5-7.21-2.79-2.79-10.7 9.86zm-1.15-1.04c-.02-.11-.03-.23-.03-.35V1.63c0-.12.01-.24.03-.35L13.41 12 2.03 22.72zM21.6 10.04l-2.43-1.4-3.16 3.16 3.16 3.17 2.46-1.42c.7-.4.7-1.5-.03-2.51zM4.17.14L16.68 7.35l-2.79 2.79L3.18.28C3.49.06 3.88.02 4.17.14z"/></svg>
-      Google Play
-    </a>
+  <p class="hero-sub">Snap a photo of the item you love and we'll find exactly where to buy it — at the best price across 100s of retailers. Join the beta and get free Pro access during the entire testing period. First 500 members only.</p>
+  <div class="hero-waitlist-form" id="heroWaitlistForm">
+    <div class="hero-waitlist-row">
+      <input class="hero-waitlist-input" type="email" id="heroWaitlistEmail" placeholder="Enter your email address">
+      <button class="hero-waitlist-btn" onclick="submitHeroWaitlist()">Join the waitlist →</button>
+    </div>
+    <p class="hero-waitlist-microcopy" id="heroWaitlistMicrocopy">Free to join. No credit card required.</p>
+    <p class="hero-waitlist-success" id="heroWaitlistSuccess">You're on the list! We'll be in touch soon. 🎉</p>
   </div>
   </div>
   <!-- Phone mockups -->
@@ -697,19 +733,6 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- WAITLIST -->
-<section class="waitlist" id="waitlist">
-  <p class="section-label">Early Access</p>
-  <h2>Be the first to find anything.</h2>
-  <p class="waitlist-sub">Join the beta and get free Pro access during the entire testing period. First 500 members only.</p>
-  <div class="waitlist-form" id="waitlistForm">
-    <input class="waitlist-input" type="email" id="waitlistEmail" placeholder="Enter your email address">
-    <button class="waitlist-btn" onclick="submitWaitlist()">Join the waitlist →</button>
-  </div>
-  <p class="waitlist-microcopy" id="waitlistMicrocopy">Free to join. No credit card. Early access for the first 500 members.</p>
-  <p class="waitlist-success" id="waitlistSuccess">You're on the list! We'll be in touch soon. 🎉</p>
 </section>
 
 <!-- FEATURES -->
@@ -897,6 +920,38 @@
         document.getElementById('waitlistForm').style.display = 'none';
         document.getElementById('waitlistMicrocopy').style.display = 'none';
         document.getElementById('waitlistSuccess').classList.add('show');
+      } else {
+        btn.textContent = 'Join the waitlist →';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      btn.textContent = 'Join the waitlist →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  }
+
+  async function submitHeroWaitlist() {
+    const email = document.getElementById('heroWaitlistEmail').value;
+    if (!email || !email.includes('@')) {
+      document.getElementById('heroWaitlistEmail').focus();
+      return;
+    }
+    const btn = document.querySelector('.hero-waitlist-btn');
+    btn.textContent = 'Joining…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/xwlkdkwd', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      if (res.ok) {
+        document.getElementById('heroWaitlistForm').querySelector('.hero-waitlist-row').style.display = 'none';
+        document.getElementById('heroWaitlistMicrocopy').style.display = 'none';
+        document.getElementById('heroWaitlistSuccess').classList.add('show');
       } else {
         btn.textContent = 'Join the waitlist →';
         btn.disabled = false;
