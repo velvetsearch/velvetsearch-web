@@ -718,16 +718,18 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo"><img src="VS_horizontal_logo.png" alt="VelvetSearch"></a>
-  <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#how">How it works</a>
-    <a href="#" onclick="openContact(); return false;">Contact</a>
-    <a href="#" class="nav-cta" onclick="openWaitlist(); return false;">Join the waitlist</a>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="VS_horizontal_logo.png" alt="VelvetSearch"></a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#" onclick="openContact(); return false;">Contact</a>
+      <a href="#" class="nav-cta" onclick="openWaitlist(); return false;">Join the waitlist</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
 <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
