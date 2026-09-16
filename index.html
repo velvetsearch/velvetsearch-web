@@ -601,8 +601,14 @@
 
   /* RESPONSIVE */
 
+/* Mid desktop (1025px–1279px) */
+  @media (min-width: 1025px) and (max-width: 1279px) {
+    .nav-inner { max-width: 1048px; margin: 0 auto; padding: 0 24px; }
+    .hero > .hero-inner { max-width: 1048px; margin: 0 auto; padding: 0 24px; }
+  }
+
   /* Large desktop (1280px+) — max content width */
-   @media (min-width: 1280px) {
+  @media (min-width: 1280px) {
     nav { padding: 20px 48px; }
     .features-grid { max-width: 1200px; }
     .how { max-width: none; }
@@ -612,7 +618,7 @@
     footer { padding: 56px 48px 48px; }
   }
 
-  /* Tablet landscape (1024px) */
+  /* Tablet landscape (1024px+) */
   @media (max-width: 1024px) {
     nav { padding: 16px 24px; }
     .nav-inner { max-width: 1000px; padding: 0 24px; }
