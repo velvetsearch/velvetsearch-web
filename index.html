@@ -45,10 +45,15 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
+    padding: 18px 0;
     background: rgba(28,27,30,0.95);
     backdrop-filter: blur(12px);
     border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; max-width: 1200px;
+    margin: 0 auto;
   }
   .nav-logo img { height: 28px; width: auto; display: block; }
   .nav-links { display: flex; align-items: center; gap: 32px; }
