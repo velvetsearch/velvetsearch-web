@@ -128,8 +128,8 @@
   }
   .hero-sub-beta {
     font-family: 'Syne', sans-serif;
-    font-size: 16px; font-weight: 700; color: var(--white);
-    max-width: 500px; line-height: 1.5; margin-bottom: 28px;
+    font-size: 14px; font-weight: 700; color: var(--white);
+    line-height: 1.5; margin-bottom: 14px;
     position: relative; z-index: 2;
   }
   .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-start; margin-bottom: 40px; position: relative; z-index: 2; }
@@ -241,13 +241,18 @@
   .store-icon { width: 20px; height: 20px; }
 
   /* HERO WAITLIST */
-  .hero-waitlist-form { position: relative; z-index: 2; width: 100%; max-width: 500px; }
+  .hero-waitlist-form {
+    position: relative; z-index: 2; width: 100%; max-width: 500px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px; padding: 20px;
+    backdrop-filter: blur(8px);
+  }
   .hero-waitlist-row {
     display: flex; gap: 10px;
-    background: rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.92);
     border: 1px solid rgba(255,255,255,0.95);
     border-radius: 100px; padding: 6px 6px 6px 20px;
-    backdrop-filter: blur(8px);
   }
   .hero-waitlist-input {
     flex: 1; background: transparent; border: none; outline: none;
@@ -720,8 +725,8 @@
   <div class="hero-content">
   <h1>Shop the world<br><em>around you.</em></h1>
   <p class="hero-sub">Snap a photo of the item you love and we'll find exactly where to buy it — at the best price across 100s of retailers.</p>
-  <p class="hero-sub-beta">Join the beta and get free Pro access during the entire testing period. First 50 members only.</p>
   <div class="hero-waitlist-form" id="heroWaitlistForm">
+    <p class="hero-sub-beta">Join the beta and get free Pro access during the entire testing period. First 50 members only.</p>
     <div class="hero-waitlist-row">
       <input class="hero-waitlist-input" type="email" id="heroWaitlistEmail" placeholder="Enter your email address">
       <button class="hero-waitlist-btn" onclick="submitHeroWaitlist()">Join the waitlist →</button>
