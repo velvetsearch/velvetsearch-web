@@ -135,14 +135,14 @@
   .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-start; margin-bottom: 40px; position: relative; z-index: 2; }
 
   /* PHONE MOCKUPS */
-  .hero-phones {
+   .hero-phones {
     display: flex; align-items: center; justify-content: flex-end;
     width: 100%; max-width: 480px;
     position: relative; z-index: 1;
     height: 480px;
     flex-shrink: 0;
     margin-left: auto;
-    margin-right: max(0px, calc((100vw - 1000px) / 2 - 24px));
+    margin-right: 0;
   }
   .phone-mockup {
     background: #0f0e12;
@@ -585,16 +585,12 @@
   /* RESPONSIVE */
 
   /* Large desktop (1280px+) — max content width */
-  @media (min-width: 1280px) {
+   @media (min-width: 1280px) {
     nav { padding: 20px 48px; }
     .features-grid { max-width: 1200px; }
     .how { max-width: none; }
     .steps { max-width: 1200px; }
     .hero h1 { font-size: 62px; }
-    .hero { padding: 140px 48px 80px; }
-    .hero-content { max-width: 560px; }
-    .hero-waitlist-form { max-width: 420px; }
-    .hero-phones { margin-right: 0; }
     .cta-band { padding: 120px 80px; }
     footer { padding: 56px 48px 48px; }
   }
@@ -639,12 +635,15 @@
       align-items: center;
       text-align: center;
     }
-    .hero-content {
-      align-items: center;
-      text-align: center;
-      max-width: 100%;
-      padding: 0;
-    }
+      .hero-content {
+    display: flex; flex-direction: column;
+    align-items: flex-start;
+    max-width: 500px;
+    flex-shrink: 0;
+    margin-left: 0;
+    text-align: left;
+    padding: 0;
+  }
     .hero h1 { max-width: 100%; }
     .hero-eyebrow { font-size: 11px; }
     .hero-sub { font-size: 15px; max-width: 100%; }
