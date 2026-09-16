@@ -79,14 +79,13 @@
     position: relative; overflow: visible;
     background: transparent;
   }
-  .hero-bg {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    bottom: calc(100% - (100vh - 160px));
+   .hero-bg {
+    position: absolute;
+    top: 0; bottom: 160px;
+    left: 50%; transform: translateX(-50%);
+    width: 100vw;
     background: var(--indigo);
     z-index: 0;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
   }
   .hero-glow {
     position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
