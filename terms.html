@@ -1,410 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service — VelvetSearch</title>
-<meta name="description" content="VelvetSearch Terms of Service — the rules and guidelines for using our app.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Service | VelvetSearch</title>
+<meta name="description" content="The terms for using the VelvetSearch app and website.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --dark: #1C1B1E;
-    --indigo: #5243E0;
-    --purple: #9B4FD5;
-    --pink: #FF35EA;
-    --cyan: #18B9F2;
-    --taupe: #C4B9A8;
-    --gray: #797878;
-    --cream: #F7F4EF;
-    --white: #ffffff;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background: var(--white);
-    color: var(--dark);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
-    background: rgba(28,27,30,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid rgba(255,255,255,0.08);
-  }
-  .nav-logo img { height: 28px; width: auto; display: block; }
-  .nav-links { display: flex; align-items: center; gap: 32px; }
-  .nav-links a {
-    font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.75);
-    text-decoration: none; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--white); }
-  .nav-cta {
-    background: var(--white); color: var(--indigo) !important;
-    padding: 10px 20px; border-radius: 100px;
-    font-size: 14px; font-weight: 700;
-    transition: opacity 0.2s !important;
-  }
-  .nav-cta:hover { opacity: 0.9; }
-
-  /* LEGAL CONTENT */
-  .legal-page {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 160px 24px 100px;
-  }
-  .legal-eyebrow {
-    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
-    color: var(--indigo); text-transform: uppercase; margin-bottom: 16px;
-  }
-  .legal-page h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(32px, 4vw, 46px); font-weight: 700;
-    letter-spacing: -1px; color: var(--dark);
-    margin-bottom: 12px;
-  }
-  .legal-updated {
-    font-size: 14px; color: var(--gray); margin-bottom: 48px;
-  }
-  .legal-page h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: 22px; font-weight: 700;
-    letter-spacing: -0.3px; color: var(--dark);
-    margin-top: 40px; margin-bottom: 14px;
-  }
-  .legal-page p {
-    font-size: 15px; line-height: 1.75; color: var(--gray);
-    margin-bottom: 16px;
-  }
-  .legal-page ul {
-    margin: 0 0 16px 20px;
-  }
-  .legal-page li {
-    font-size: 15px; line-height: 1.75; color: var(--gray);
-    margin-bottom: 8px;
-  }
-  .legal-page a {
-    color: var(--indigo); text-decoration: none;
-    border-bottom: 1px solid rgba(82,67,224,0.3);
-  }
-  .legal-page a:hover { border-color: var(--indigo); }
-  .legal-page strong { color: var(--dark); font-weight: 600; }
-
-  /* FOOTER */
-  footer {
-    padding: 48px 48px 40px;
-    border-top: 0.5px solid rgba(28,27,30,0.08);
-    display: flex; flex-wrap: nowrap; gap: 24px;
-    align-items: center; justify-content: space-between;
-  }
-  .footer-logo img { height: 24px; width: auto; display: block; }
-  .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
-  .footer-links a {
-    font-size: 13px; color: var(--gray); text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--dark); }
-  .footer-copy { font-size: 12px; color: var(--taupe); }
-
-  /* CONTACT MODAL */
-  .modal-overlay {
-    display: none; position: fixed; inset: 0; z-index: 200;
-    background: rgba(28,27,30,0.5); backdrop-filter: blur(4px);
-    align-items: center; justify-content: center; padding: 24px;
-  }
-  .modal-overlay.open { display: flex; }
-  .modal {
-    background: var(--white); border-radius: 24px;
-    padding: 40px; max-width: 480px; width: 100%;
-    position: relative;
-  }
-  .modal h3 {
-    font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 700;
-    color: var(--dark); margin-bottom: 8px; letter-spacing: -0.5px;
-  }
-  .modal p { font-size: 14px; color: var(--gray); margin-bottom: 28px; line-height: 1.6; }
-  .modal-close {
-    position: absolute; top: 20px; right: 20px;
-    background: rgba(28,27,30,0.06); border: none; cursor: pointer;
-    width: 32px; height: 32px; border-radius: 50%;
-    font-size: 18px; color: var(--gray);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .form-group { margin-bottom: 16px; }
-  .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--dark); margin-bottom: 6px; letter-spacing: 0.04em; }
-  .form-group input, .form-group textarea, .form-group select {
-    width: 100%; padding: 12px 14px; border-radius: 10px;
-    border: 1px solid rgba(28,27,30,0.15); font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 14px; color: var(--dark); outline: none;
-    transition: border-color 0.2s; background: var(--white);
-  }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--indigo); }
-  .form-group textarea { resize: vertical; min-height: 100px; }
-  .form-submit {
-    width: 100%; padding: 14px;
-    background: linear-gradient(135deg, var(--indigo), var(--purple));
-    color: var(--white); font-family: 'Syne', sans-serif;
-    font-size: 15px; font-weight: 700; border: none;
-    border-radius: 100px; cursor: pointer; transition: opacity 0.2s;
-  }
-  .form-submit:hover { opacity: 0.9; }
-
-  /* MOBILE MENU */
-  .hamburger {
-    display: none;
-    background: none; border: none; cursor: pointer;
-    width: 32px; height: 32px;
-    flex-direction: column; align-items: center; justify-content: center;
-    gap: 5px; z-index: 210;
-  }
-  .hamburger span {
-    width: 22px; height: 2px; background: var(--white);
-    border-radius: 2px; transition: transform 0.25s, opacity 0.25s;
-  }
-  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  .mobile-menu-overlay {
-    display: none; position: fixed; inset: 0; z-index: 199;
-    background: rgba(28,27,30,0.5); backdrop-filter: blur(4px);
-  }
-  .mobile-menu-overlay.open { display: block; }
-
-  .mobile-menu {
-    position: fixed; top: 0; right: 0; bottom: 0; z-index: 200;
-    width: 280px; max-width: 80vw;
-    background: var(--dark);
-    padding: 100px 28px 40px;
-    display: flex; flex-direction: column; gap: 8px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-  }
-  .mobile-menu.open { transform: translateX(0); }
-  .mobile-menu a {
-    font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.85);
-    text-decoration: none; padding: 14px 0;
-    border-bottom: 0.5px solid rgba(255,255,255,0.08);
-  }
-  .mobile-menu a.nav-cta {
-    margin-top: 16px; text-align: center;
-    border-bottom: none;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
-    .nav-links a:not(.nav-cta) { display: none; }
-    .legal-page { padding: 120px 20px 80px; }
-    footer { padding: 36px 24px 32px; }
-  }
-  @media (max-width: 640px) {
-    nav { padding: 14px 20px; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    footer { padding: 32px 20px 28px; flex-direction: column; align-items: flex-start; gap: 20px; }
-    .footer-links { gap: 16px; }
-  }
+  :root { --bg: #F7F4EF; --dark: #1C1B1E; --indigo: #5243E0; --taupe: #C4B9A8; --gray: #797878; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--dark); font-family: 'Plus Jakarta Sans', -apple-system, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 48px 20px 80px; }
+  .logo { display: inline-block; line-height: 0; }
+  .logo img { width: 160px; height: auto; display: block; }
+  h1 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.2; margin: 32px 0 12px; }
+  .updated { color: var(--gray); font-size: 14px; margin: 0 0 32px; }
+  h2 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 20px; margin: 40px 0 10px; }
+  p, li { font-size: 16px; line-height: 1.7; color: #3C3B3E; }
+  p { margin: 0 0 14px; }
+  ul { padding-left: 20px; margin: 0 0 14px; }
+  li { margin-bottom: 8px; }
+  .caps { text-transform: uppercase; font-size: 14px; letter-spacing: 0.2px; }
+  a { color: var(--indigo); }
+  .foot { margin-top: 48px; font-size: 14px; color: var(--gray); }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<!-- NAV -->
-<nav>
-  <a href="/" class="nav-logo"><img src="/VS_horizontal_logo.png" alt="VelvetSearch"></a>
-  <div class="nav-links">
-    <a href="/#features">Features</a>
-    <a href="/#how">How it works</a>
-    <a href="#" onclick="openContact(); return false;">Contact</a>
-    <a href="/#download" class="nav-cta">Download the app</a>
-  </div>
-  <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <a href="/" class="logo"><img src="VS_horizontal_logo_dark.png" alt="VelvetSearch"></a>
 
-<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="/#features" onclick="closeMobileMenu()">Features</a>
-  <a href="/#how" onclick="closeMobileMenu()">How it works</a>
-  <a href="#" onclick="closeMobileMenu(); openContact(); return false;">Contact</a>
-  <a href="/#download" class="nav-cta" onclick="closeMobileMenu()">Download the app</a>
-</div>
-
-<!-- LEGAL CONTENT -->
-<main class="legal-page">
-  <p class="legal-eyebrow">Legal</p>
   <h1>Terms of Service</h1>
-  <p class="legal-updated">Last updated: June 29, 2026</p>
+  <p class="updated">Last updated September 2026</p>
 
-  <p>Welcome to VelvetSearch. These Terms of Service ("Terms") govern your access to and use of the VelvetSearch mobile application (the "App"), operated by VelvetSearch ("we," "us," or "our"). By creating an account or using the App, you agree to these Terms. If you do not agree, please do not use the App.</p>
+  <p>
+    These terms are an agreement between you and Evangelina Castorena, doing business as VelvetSearch
+    ("VelvetSearch," "we," "us"), for your use of the VelvetSearch app and website. By creating an account
+    or using VelvetSearch, you agree to these terms and to our <a href="/privacy">Privacy Policy</a>.
+  </p>
 
-  <h2>1. Eligibility</h2>
-  <p>You must be at least 13 years old to use the App. By using the App, you represent that you meet this requirement and that you have the legal capacity to enter into these Terms.</p>
+  <h2>1. Who can use VelvetSearch</h2>
+  <p>
+    You must be at least 13 years old. If you are under 18, you need permission from a parent or guardian,
+    and they agree to these terms on your behalf. VelvetSearch is currently offered in the United States only.
+  </p>
 
   <h2>2. Your account</h2>
-  <p>To use certain features of the App, you'll need to create an account. You're responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. Please notify us immediately if you suspect any unauthorized use of your account.</p>
+  <p>
+    Keep your login details private and let us know right away if you think someone else has used your account.
+    You're responsible for activity on your account. You can delete your account at any time in the app.
+  </p>
 
-  <h2>3. The service we provide</h2>
-  <p>VelvetSearch allows you to search for products by uploading or capturing photos, by text search, and by browsing a discover feed. We use third-party image recognition and search technology to identify items and locate where they may be purchased, along with pricing information across participating retailers.</p>
-  <p>VelvetSearch is a discovery and comparison tool. We are not a retailer, and we do not sell, ship, or fulfill any products ourselves. All purchases you make are completed directly with the third-party retailer, subject to that retailer's own terms, pricing, and policies.</p>
+  <h2>3. What VelvetSearch is</h2>
+  <p>
+    VelvetSearch is a search tool. It uses image recognition and text search to help you find products and
+    compare prices at other stores. We are not a retailer. We don't sell, ship, or fulfill any products,
+    and any purchase you make is between you and the retailer, under their terms.
+  </p>
 
-  <h2>4. Accuracy of results</h2>
-  <p>We work to provide accurate product matches and up-to-date pricing, but we cannot guarantee that search results, prices, availability, or product details are always complete, current, or error-free. Prices and availability shown in the App may differ from what you see when you complete a purchase on a retailer's site.</p>
+  <h2>4. Results, prices, and availability</h2>
+  <p>
+    Results come from third-party sources and are identified partly by AI, which can make mistakes.
+    We work to keep results accurate, but we can't guarantee that product matches, prices, sizes, availability,
+    or other details are always complete, current, or correct. Check the details on the retailer's site before you buy.
+  </p>
+  <p>
+    Price alerts are a convenience. We don't guarantee that an alert will be accurate, on time, or sent at all.
+  </p>
 
-  <h2>5. User content</h2>
-  <p>When you upload photos or submit searches, you grant us a limited license to use that content solely for the purpose of operating and improving the App's search functionality. You retain ownership of any photos you upload. You agree not to upload content that is unlawful, infringes on someone else's rights, or that you do not have permission to share.</p>
+  <h2>5. No ads, and how results are ranked</h2>
+  <p>
+    VelvetSearch has no ads on any plan. Results are ordered by how well they match your search and by price.
+    Some retailer links may be affiliate links, meaning we may earn a commission if you buy something.
+    Commission never affects which results you see or their order, and retailers cannot pay to appear or rank higher.
+    See <a href="/disclosure">How VelvetSearch makes money</a>.
+  </p>
 
-  <h2>6. Acceptable use</h2>
-  <p>You agree not to:</p>
+  <h2>6. Free and Pro plans</h2>
+  <p>
+    <strong>Free:</strong> unlimited searches, results, and boards, plus Compare Price up to 3 times per month.
+  </p>
+  <p>
+    <strong>Pro:</strong> unlimited Compare Price, price alerts, the weekly digest, full search history, and push
+    notifications. Pro costs $4.99 per month or $39.99 per year in the United States. Prices shown in the App Store
+    at the time of purchase apply.
+  </p>
   <ul>
-    <li>Use the App for any unlawful purpose or in violation of these Terms</li>
-    <li>Attempt to reverse-engineer, scrape, or interfere with the App or its underlying systems</li>
-    <li>Upload content that is harmful, abusive, infringing, or otherwise objectionable</li>
-    <li>Use automated means to access the App without our prior written permission</li>
-    <li>Impersonate any person or entity, or misrepresent your affiliation with any person or entity</li>
+    <li>Pro is billed through your Apple account when you confirm your purchase.</li>
+    <li>Your subscription renews automatically at the same price and length unless you cancel at least 24 hours before the end of the current period.</li>
+    <li>You can manage or cancel your subscription in your iPhone's Settings, under your name, then Subscriptions. Cancelling stops future renewals. You keep Pro until the end of the period you've paid for.</li>
+    <li>Payments and refunds are handled by Apple under Apple's policies. We can't issue refunds directly.</li>
+    <li>If we change Pro pricing, we'll tell you in advance, and you'll have the chance to cancel before the new price applies.</li>
+  </ul>
+  <p>Features included in each plan may change over time.</p>
+
+  <h2>7. Beta program</h2>
+  <p>
+    During our beta, a limited number of early members, up to 50, get Pro features free. When VelvetSearch launches,
+    beta members will be offered Pro for $19.99 for their first year. After that first year, the regular Pro price applies
+    unless you cancel. The exact launch offer will be shown in the app before you're charged anything.
+  </p>
+  <p>
+    Beta versions may have bugs, missing features, or interruptions, and features may change or be removed.
+    We may end the beta at any time. If you send us feedback or ideas, you let us use them to improve VelvetSearch
+    without owing you anything.
+  </p>
+
+  <h2>8. Your content</h2>
+  <p>
+    You own the photos you take and upload. You give us permission to use them to run your searches and provide
+    the app's features, including sending them to the providers described in our Privacy Policy. Search photos are
+    deleted about one minute after your search. You're responsible for making sure you have the right to use any
+    photo you upload.
+  </p>
+  <p>
+    If you report a listing, we may review it and remove or hide it for you or for everyone.
+  </p>
+
+  <h2>9. Things you can't do</h2>
+  <ul>
+    <li>Break the law or help anyone else break it.</li>
+    <li>Scrape, copy, or collect data from VelvetSearch, or access it with bots or automated tools, without our written permission.</li>
+    <li>Try to break, overload, or get around the security of VelvetSearch.</li>
+    <li>Upload anything illegal, harmful, or that you don't have the right to use.</li>
+    <li>Pretend to be someone else, or misuse reports to target retailers.</li>
+    <li>Resell or repackage VelvetSearch or its results.</li>
   </ul>
 
-  <h2>7. Third-party services and links</h2>
-  <p>The App relies on third-party services, including image recognition and product search providers, and links out to third-party retailer websites to complete purchases. We do not control and are not responsible for the content, policies, or practices of any third-party service or website. Your interactions with those third parties are solely between you and them.</p>
+  <h2>10. Third parties</h2>
+  <p>
+    VelvetSearch links to retailers and relies on third-party services. We don't control them and aren't responsible
+    for their content, products, policies, or practices.
+  </p>
 
-  <h2>8. Price alerts</h2>
-  <p>Price-drop alerts are provided as a convenience based on data available to us at the time. We do not guarantee the accuracy or timeliness of any price alert, and pricing may change before you complete a purchase.</p>
+  <h2>11. Our property</h2>
+  <p>
+    The VelvetSearch app, name, logo, and design belong to us. Product names, images, and brands shown in results
+    belong to their owners and are shown to help you find products.
+  </p>
 
-  <h2>9. Intellectual property</h2>
-  <p>The App, including its design, branding, and underlying technology, is owned by VelvetSearch and protected by applicable intellectual property laws. Except for the limited rights granted to use the App as intended, no other rights are granted to you.</p>
+  <h2>12. Disclaimers</h2>
+  <p class="caps">
+    VelvetSearch is provided "as is" and "as available." To the extent the law allows, we disclaim all warranties,
+    express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement.
+    We don't promise that VelvetSearch will be uninterrupted, error-free, or secure.
+  </p>
 
-  <h2>10. Termination</h2>
-  <p>You may stop using the App and delete your account at any time. We may suspend or terminate your access to the App if we believe you've violated these Terms or if we discontinue the App.</p>
+  <h2>13. Limitation of liability</h2>
+  <p class="caps">
+    To the extent the law allows, we are not liable for any indirect, incidental, special, consequential, or punitive
+    damages, or for anything related to a purchase you make from a retailer. Our total liability for any claim related
+    to VelvetSearch is limited to the greater of the amount you paid us in the 12 months before the claim, or $50.
+  </p>
 
-  <h2>11. Disclaimer of warranties</h2>
-  <p>The App is provided "as is" and "as available" without warranties of any kind, whether express or implied. We do not warrant that the App will be uninterrupted, error-free, or that search results will be accurate or complete.</p>
+  <h2>14. Ending your use</h2>
+  <p>
+    You can stop using VelvetSearch and delete your account at any time. We may suspend or end your access if you
+    break these terms or if we need to for legal or safety reasons. Deleting your account doesn't cancel an Apple
+    subscription. Cancel that in your iPhone's Settings.
+  </p>
 
-  <h2>12. Limitation of liability</h2>
-  <p>To the fullest extent permitted by law, VelvetSearch will not be liable for any indirect, incidental, special, or consequential damages arising from your use of the App, including any losses related to purchases made through third-party retailers found via the App.</p>
+  <h2>15. Changes to these terms</h2>
+  <p>
+    We may update these terms. We'll change the date at the top, and for significant changes we'll let you know in the
+    app or by email before they take effect. If you keep using VelvetSearch after that, the new terms apply.
+  </p>
 
-  <h2>13. Changes to these terms</h2>
-  <p>We may update these Terms from time to time. If we make material changes, we will update the "Last updated" date above and, where appropriate, notify you through the App.</p>
+  <h2>16. Governing law</h2>
+  <p>
+    These terms are governed by the laws of the State of California. Any dispute will be handled in the state or federal
+    courts located in San Diego County, California, unless the law where you live requires otherwise.
+  </p>
 
-  <h2>14. Contact us</h2>
-  <p>If you have questions about these Terms, please contact us at <a href="mailto:hello@velvetsearch.com">hello@velvetsearch.com</a>.</p>
-</main>
+  <h2>17. Apple App Store</h2>
+  <p>If you downloaded VelvetSearch from the Apple App Store:</p>
+  <ul>
+    <li>These terms are between you and us, not Apple. We, not Apple, are responsible for VelvetSearch and its content.</li>
+    <li>Your use of the app must also follow the App Store Terms of Service.</li>
+    <li>Apple has no obligation to provide maintenance or support for the app.</li>
+    <li>If the app fails to meet any applicable warranty, you may notify Apple, and Apple may refund the purchase price, if any. Apple has no other warranty obligation for the app.</li>
+    <li>Apple is not responsible for any claims relating to the app, including product liability claims, claims that the app fails to meet legal or regulatory requirements, and consumer protection or privacy claims.</li>
+    <li>Apple is not responsible for investigating, defending, or settling any claim that the app infringes someone's intellectual property.</li>
+    <li>You confirm you are not located in a country subject to a U.S. government embargo, and you are not on any U.S. government list of prohibited or restricted parties.</li>
+    <li>Apple and its subsidiaries are third-party beneficiaries of these terms and may enforce them against you.</li>
+  </ul>
 
-<!-- FOOTER -->
-<footer>
-  <a href="/" class="footer-logo"><img src="/VS_horizontal_logo_dark.png" alt="VelvetSearch"></a>
-  <div class="footer-links">
-    <a href="/privacy">Privacy policy</a>
-    <a href="/terms">Terms of service</a>
-    <a href="#" onclick="openContact(); return false;">Contact us</a>
-  </div>
-  <p class="footer-copy">© 2026 VelvetSearch. All rights reserved.</p>
-</footer>
-<!-- CONTACT MODAL -->
-<div class="modal-overlay" id="contactModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeContact()">✕</button>
-    <h3>Get in touch</h3>
-    <p>Have a question, a partnership idea, or just want to say hello? We'll get back to you within 24 hours.</p>
-    <div class="form-group">
-      <label>Your name</label>
-      <input type="text" placeholder="Jane Smith">
-    </div>
-    <div class="form-group">
-      <label>Email address</label>
-      <input type="email" placeholder="jane@example.com">
-    </div>
-    <div class="form-group">
-      <label>Topic</label>
-      <select>
-        <option>General enquiry</option>
-        <option>Partnership</option>
-        <option>Press</option>
-        <option>Support</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Message</label>
-      <textarea placeholder="Tell us what's on your mind…"></textarea>
-    </div>
-    <button class="form-submit" onclick="submitContact()">Send message →</button>
-  </div>
+  <h2>18. Contact</h2>
+  <p>
+    Evangelina Castorena, doing business as VelvetSearch<br>
+    <a href="mailto:hello@velvetsearch.com">hello@velvetsearch.com</a>
+  </p>
+
+  <p class="foot"><a href="/privacy">Privacy Policy</a> &middot; <a href="/disclosure">How we make money</a></p>
+
 </div>
-
-<script>
-  function openContact() {
-    document.getElementById('contactModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeContact() {
-    document.getElementById('contactModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  async function submitContact() {
-    const name = document.querySelector('#contactModal input[type="text"]').value;
-    const email = document.querySelector('#contactModal input[type="email"]').value;
-    const topic = document.querySelector('#contactModal select').value;
-    const message = document.querySelector('#contactModal textarea').value;
-
-    if (!name || !email || !message) {
-      alert('Please fill in your name, email, and message.');
-      return;
-    }
-
-    const btn = document.querySelector('.form-submit');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-
-    try {
-      const res = await fetch('https://formspree.io/f/xpqgpkqg', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, topic, message })
-      });
-
-      if (res.ok) {
-        alert('Thanks for reaching out! We\'ll be in touch within 24 hours.');
-        document.querySelector('#contactModal input[type="text"]').value = '';
-        document.querySelector('#contactModal input[type="email"]').value = '';
-        document.querySelector('#contactModal select').value = 'General enquiry';
-        document.querySelector('#contactModal textarea').value = '';
-        closeContact();
-      } else {
-        alert('Something went wrong. Please try again or email us at hello@velvetsearch.com.');
-      }
-    } catch (err) {
-      alert('Something went wrong. Please try again or email us at hello@velvetsearch.com.');
-    } finally {
-      btn.textContent = 'Send message →';
-      btn.disabled = false;
-    }
-  }
-  document.getElementById('contactModal').addEventListener('click', function(e) {
-    if (e.target === this) closeContact();
-  });
-
-  function toggleMobileMenu() {
-    document.getElementById('hamburgerBtn').classList.toggle('open');
-    document.getElementById('mobileMenu').classList.toggle('open');
-    document.getElementById('mobileMenuOverlay').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
-  }
-  function closeMobileMenu() {
-    document.getElementById('hamburgerBtn').classList.remove('open');
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.getElementById('mobileMenuOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-</script>
 </body>
 </html>
