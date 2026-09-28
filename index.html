@@ -259,6 +259,12 @@
 
   /* HERO WAITLIST */
   .hero-waitlist-form {
+    position: relative; z-index: 2; width: 100%; max-width: 500px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px; padding: 20px;
+    backdrop-filter: blur(8px);
+  }
   .hero-waitlist-row {
     display: flex; gap: 10px;
     background: rgba(255,255,255,0.92);
@@ -657,14 +663,9 @@
       align-items: center;
       padding: 0 24px;
     }
-  .hero-waitlist-form {
-    position: relative; z-index: 2; width: 100%; max-width: 500px;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 20px; padding: 20px 20px 0;
-    backdrop-filter: blur(8px);
-  }
-    }
+    .hero-content { align-items: center; text-align: center; }
+    .hero-waitlist-form { padding: 16px; }
+    .hero-waitlist-microcopy { margin-bottom: 0; }
     .hero-phones {
       max-width: 100%;
       width: 100%;
@@ -675,7 +676,6 @@
     .phone-mockup.left { width: 128px; height: 270px; border-radius: 24px; transform: translate(-125%, calc(60% + 20px)); }
     .phone-mockup.right { width: 128px; height: 270px; border-radius: 24px; transform: translate(15%, calc(60% + 20px)); }
   }
-
   /* Mobile large (640px) */
   @media (max-width: 640px) {
     nav { padding: 14px 20px; }
