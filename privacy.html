@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://www.velvetsearch.com/privacy">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.velvetsearch.com/privacy">
-<meta property="og:title" content="Privacy Policy — VelvetSearch">
+<meta property="og:title" content="Privacy Policy | VelvetSearch">
 <meta property="og:description" content="What VelvetSearch collects, why, who it is shared with, and your choices.">
 <meta property="og:image" content="https://www.velvetsearch.com/og-image.png">
 <meta property="og:site_name" content="VelvetSearch"><link rel="stylesheet" href="/fonts/fonts.css">
@@ -43,7 +43,7 @@
   <a href="/" class="logo"><img src="VS_horizontal_logo_dark.png" alt="VelvetSearch"></a>
 
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated September 2026</p>
+  <p class="updated">Last updated October 2026</p>
 
   <p>
     VelvetSearch is a mobile app and website operated by Evangelina Castorena, doing business as
@@ -52,7 +52,7 @@
   </p>
 
   <div class="callout">
-    <p><strong>The short version:</strong> We use your photos only to run your search, then delete them within about a minute. We don't sell your information. We don't show ads. Usage analytics are tied to your account ID, not your name or email.</p>
+    <p><strong>The short version:</strong> Faces we detect in your photos are hidden on your phone before a search. We use your photos only to run your search, then delete them within about a minute. We don't sell your information. We don't show ads. Usage analytics are tied to your account ID, not your name or email.</p>
   </div>
 
   <h2>1. What we collect</h2>
@@ -83,11 +83,14 @@
   <h2>2. How your photos are handled</h2>
   <p>When you search with a photo:</p>
   <ul>
-    <li>The photo is sent to Google's Gemini API, which identifies the item in it.</li>
-    <li>At the same time, the photo is uploaded to our storage and shared through a temporary link with our search providers, SerpAPI or SearchApi.io, which use Google Lens to find matching products.</li>
+    <li>Before the photo leaves your phone, the app looks for faces and hides the ones it finds by pixelating them. This happens on your phone. Face detection isn't perfect, so a face can be missed. You can see the photo on screen before you search, and if a face is still showing, choose a different photo.</li>
+    <li>If you tap glasses or earrings to keep them visible, that part of the face is left clear.</li>
+    <li>The photo, or the part you cropped it to, is sent to Google's Gemini API, which identifies the item in it.</li>
+    <li>The photo is then uploaded to our storage and shared through a temporary link with our search providers, SerpAPI or SearchApi.io, which use Google Lens to find matching products.</li>
     <li>The photo is deleted from our storage about one minute after your search.</li>
   </ul>
   <p>
+    Only the copy with faces hidden ever leaves your phone. If faces can't be checked, the photo isn't sent.
     We do not keep your search photos, sell them, or use them to train AI models, and our AI providers
     do not use them to train their models. Your search history keeps the name of the item found, not your photo.
   </p>
